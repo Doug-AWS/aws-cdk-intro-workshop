@@ -3,7 +3,7 @@ title = "cdk deploy"
 weight = 500
 +++
 
-Okay, we've got a CloudFormation template. What's next? __Let's deploy it into our account!__
+Okay, we've got a CloudFormation template. What's next? __Let's deploy it into your account!__
 
 ## Bootstrapping an environment
 
@@ -26,7 +26,7 @@ Then:
 ...
 ```
 
-Hopefully this command finished successfully and we can move on to deploy our app.
+Hopefully this command finished successfully and we can move on to deploy your app.
 
 ## Let's deploy
 
@@ -104,7 +104,7 @@ You will likely see something like this:
 ![](./cfn1.png)
 
 If you select `CdkWorkshopStack` and open the __Resources__ tab, you will see the
-physical identities of our resources:
+physical identities of your resources:
 
 ![](./cfn2.png)
 

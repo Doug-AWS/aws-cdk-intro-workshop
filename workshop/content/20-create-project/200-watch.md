@@ -6,7 +6,7 @@ weight = 200
 ## Compiling your TypeScript code
 
 Since TypeScript sources need to be compiled to JavaScript, every time we make a
-modification to our source files, we would want them to be compiled to `.js`.
+modification to your source files, we would want them to be compiled to `.js`.
 
 {{% notice info %}} This is an important step. Make sure you leave the "watch"
 terminal session open at the end of this step. {{% /notice %}}

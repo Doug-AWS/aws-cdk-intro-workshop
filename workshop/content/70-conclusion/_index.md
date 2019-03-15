@@ -6,7 +6,7 @@ chapter = true
 
 # Congratulations!
 
-You've successfully finished our __Introduction to the CDK__ workshop!
+You've successfully finished your __Introduction to the CDK__ workshop!
 
 In this workshop, you've learned how to:
 
@@ -56,11 +56,11 @@ Here are a few things you can do from here:
   constructs](https://docs.aws.amazon.com/CDK/latest/userguide/writing_constructs.html)
 * Learn about [__jsii__](https://github.com/awslabs/jsii), the technology
   behind the CDK's multi-language support
-* Browse some [examples](https://github.com/aws-samples/aws-cdk-examples) on our GitHub repository
+* Browse some [examples](https://github.com/aws-samples/aws-cdk-examples) on your GitHub repository
 
 -----
 
-* Join the conversation on our [Gitter channel](https://gitter.im/awslabs/aws-cdk)
+* Join the conversation on your [Gitter channel](https://gitter.im/awslabs/aws-cdk)
 * Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/aws-cdk)
 * Raise [an issue](https://github.com/awslabs/aws-cdk/issues/new) on GitHub
 * Learn how to submit

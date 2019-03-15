@@ -3,9 +3,9 @@ title = "Granting permissions"
 weight = 600
 +++
 
-## Allow Lambda to read/write our DynamoDB table
+## Allow Lambda to read/write your DynamoDB table
 
-Let's give our Lambda's execution role permissions to read/write from our table.
+Let's give your Lambda's execution role permissions to read/write from your table.
 
 Go back to `hitcounter.ts` and add the following highlighted lines:
 
@@ -39,7 +39,7 @@ export class HitCounter extends cdk.Construct {
       }
     });
 
-    // grant the lambda role read/write permissions to our table
+    // grant the lambda role read/write permissions to your table
     table.grantReadWriteData(this.handler.role);
   }
 }
@@ -55,7 +55,7 @@ cdk deploy
 
 ## Test again
 
-Okay, deployment is complete. Let's run our test again (either use `curl` or
+Okay, deployment is complete. Let's run your test again (either use `curl` or
 your web browser):
 
 ```console
@@ -73,7 +73,7 @@ HTTP/1.1 502 Bad Gateway
 
 # 😢
 
-Still getting this pesky 5xx error! Let's look at our CloudWatch logs again
+Still getting this pesky 5xx error! Let's look at your CloudWatch logs again
 (click "Refresh"):
 
 ```json
@@ -101,12 +101,12 @@ Another access denied, but this time, if you take a close look:
 User: <VERY-LONG-STRING> is not authorized to perform: lambda:InvokeFunction on resource: <VERY-LONG-STRING>"
 ```
 
-So it seems like our hit counter actually managed to write to the database. We can confirm by
+So it seems like your hit counter actually managed to write to the database. We can confirm by
 going to the [DynamoDB Console](https://console.aws.amazon.com/dynamodb/home):
 
 ![](./logs5.png)
 
-But, we must also give our hit counter permissions to invoke the downstream lambda function.
+But, we must also give your hit counter permissions to invoke the downstream lambda function.
 
 ## Grant invoke permissions
 
@@ -142,7 +142,7 @@ export class HitCounter extends cdk.Construct {
       }
     });
 
-    // grant the lambda role read/write permissions to our table
+    // grant the lambda role read/write permissions to your table
     table.grantReadWriteData(this.handler.role);
 
     // grant the lambda role invoke permissions to the downstream function

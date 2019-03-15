@@ -5,7 +5,7 @@ weight = 100
 
 ## Hit counter Lambda handler
 
-Okay, now let's write the Lambda handler code for our hit counter.
+Okay, now let's write the Lambda handler code for your hit counter.
 
 Create the file `lambda/hitcounter.js`:
 
@@ -48,6 +48,6 @@ You'll notice that this code relies on two environment variables:
  * `DOWNSTREAM_FUNCTION_NAME` is the name of the downstream AWS Lambda function.
 
 Since the actual name of the table and the downstream function will only be
-decided when we deploy our app, we need to wire up these values from our
+decided when we deploy your app, we need to wire up these values from your
 construct code. We'll do that in the next section.
 

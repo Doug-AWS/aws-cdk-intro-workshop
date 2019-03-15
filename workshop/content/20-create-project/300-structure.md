@@ -16,13 +16,13 @@ You'll see something like this:
 ![](./structure.png)
 
 * __`lib/cdk-workshop-stack.ts`__ is where the your CDK application's main stack is defined.
-  This is the file we'll be spending most of our time in.
+  This is the file we'll be spending most of your time in.
 * `bin/cdk-workshop.ts` is the entrypoint of the CDK application. It will load
   the stack defined in `lib/cdk-workshop-stack.ts`.
 * `package.json` is your npm module manifest. It includes information like the
   name of your app, version, dependencies and build scripts like "watch" and
   "build" (`package-lock.json` is maintained by npm)
-* `cdk.json` tells the toolkit how to run your app. In our case it will be
+* `cdk.json` tells the toolkit how to run your app. In your case it will be
   `"node bin/cdk-workshop.js"`
 * `tsconfig.json` your project's [typescript
   configuration](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
@@ -49,7 +49,7 @@ This code loads and instantiate the `CdkWorkshopStack` class from the
 
 ## The main stack
 
-Open up `lib/cdk-workshop-stack.ts`. This is where the meat of our application
+Open up `lib/cdk-workshop-stack.ts`. This is where the meat of your application
 is:
 
 ```ts
@@ -72,7 +72,7 @@ export class CdkWorkshopStack extends cdk.Stack {
 }
 ```
 
-As you can see, our app was created with a sample CDK stack
+As you can see, your app was created with a sample CDK stack
 (`CdkWorkshopStack`).
 
 The stack includes:

@@ -40,20 +40,24 @@ Library reference](https://awslabs.github.io/aws-cdk/reference.html).
 ![](./clib.png)
 
 Okay, let's use `npm install` (or in short `npm i`) to install the AWS Lambda
-module and all it's dependencies into our project:
+module and all it's dependencies into your project:
 
 ```console
-npm install @aws-cdk/aws-lambda@0.22.0
+npm install @aws-cdk/aws-lambda@0.25.3
 ```
 
 Output should look like this:
 
 ```
-+ @aws-cdk/aws-lambda@0.22.0
-updated 1 package and audited 1571 packages in 5.098s
+npm WARN cdk-workshop@0.1.0 No repository field.
+npm WARN cdk-workshop@0.1.0 No license field.
+
++ @aws-cdk/aws-lambda@0.25.3
+updated 1 package and audited 984 packages in 8.153s
+found 0 vulnerabilities
 ```
 
-> You can safely ignore any warnings from npm about your package.json file.
+> You can safely ignore any warnings from npm about your *package.json* file.
 
 ## A few words about copying & pasting in this workshop
 
@@ -91,9 +95,9 @@ export class CdkWorkshopStack extends cdk.Stack {
 
 A few things to notice:
 
-- Once you save *cdk-workspho-stack-ts*, you should see an error message in the
+- Once you save *cdk-workshop-stack-ts*, you should see an error message in the
   `npm run watch` window that hello is declared but never use. Cool huh?
-- Our function uses NodeJS 8.10 runtime
+- Your function uses NodeJS 8.10 runtime
 - The handler code is loaded from the `lambda` directory which we created
   earlier. Path is relative to where you execute `cdk` from, which is the
   project's root directory
@@ -141,7 +145,13 @@ Save your code, and let's take a quick look at the diff before we deploy:
 cdk diff
 ```
 
-Output would look like this:
+If you see an error like:
+
+`--app is required either in command-line, in cdk.json or in ~/.cdk.json`
+
+you aren't in the root directory of your app.
+
+Output should look like:
 
 ```
 The CdkWorkshopStack stack uses assets, which are currently not accounted for in the diff output! See https://github.com/awslabs/aws-cdk/issues/395
@@ -181,19 +191,20 @@ Let's deploy:
 cdk deploy
 ```
 
+The `cdk deploy` command asks you to confirm the deployment, so enter `y`.
 You'll notice that `cdk deploy` not only deployed your CloudFormation stack, but
-also archived and uploaded the `lambda` directory from your disk to the
+also archived and uploaded the *lambda* directory from your disk to the
 bootstrap bucket.
 
-## Testing our function
+## Testing your function
 
-Let's go to the AWS Lambda Console and test our function.
+Let's go to the AWS Lambda Console and test your function.
 
 1. Open the [AWS Lambda
    Console](https://console.aws.amazon.com/lambda/home#/functions) (make sure
    you are in the correct region).
 
-    You should see our function:
+    You should see your function:
 
     ![](./lambda-1.png)
 
@@ -213,7 +224,7 @@ Let's go to the AWS Lambda Console and test our function.
 
 7. Click __Test__ again and wait for the execution to complete.
 
-8. Expand __Details__ in the __Execution result__ pane and you should see our expected output:
+8. Expand __Details__ in the __Execution result__ pane and you should see your expected output:
 
     ![](./lambda-4.png)
 

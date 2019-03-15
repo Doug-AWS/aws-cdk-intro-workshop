@@ -13,11 +13,13 @@ mkdir cdk-workshop && cd cdk-workshop
 
 ## cdk init
 
-We will use `cdk init` to create a new TypeScript CDK project:
+Use `cdk init` to create a new TypeScript CDK project:
 
 ```console
 cdk init sample-app --language typescript
 ```
+
+{{% notice info %}} __NOTE__: The **sample_app** template is only available in TypeScript. {{% /notice %}}
 
 Output should look like this (you can safely ignore warnings about
 initialization of a git repository, this probably means you don't have git

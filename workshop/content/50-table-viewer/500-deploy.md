@@ -1,11 +1,11 @@
 +++
-title = "Deploying our app"
+title = "Deploying your app"
 weight = 500
 +++
 
 ## cdk diff
 
-Before we deploy, let's take a look at what will happen when we deploy our app
+Before we deploy, let's take a look at what will happen when we deploy your app
 (this is just the `Resources` section of the output):
 
 ```console

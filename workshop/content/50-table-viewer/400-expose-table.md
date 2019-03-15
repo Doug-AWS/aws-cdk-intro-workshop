@@ -1,9 +1,9 @@
 +++
-title = "Exposing our hit counter table"
+title = "Exposing your hit counter table"
 weight = 400
 +++
 
-## Add a table property to our hit counter
+## Add a table property to your hit counter
 
 Edit `hitcounter.ts` and modify it as such `table` is exposed as a public property.
 
@@ -41,7 +41,7 @@ export class HitCounter extends cdk.Construct {
       }
     });
 
-    // grant the lambda role read/write permissions to our table
+    // grant the lambda role read/write permissions to your table
     table.grantReadWriteData(this.handler.role);
 
     // grant the lambda role invoke permissions to the downstream function
@@ -50,7 +50,7 @@ export class HitCounter extends cdk.Construct {
 }
 {{</highlight>}}
 
-## Now we can access the table from our stack
+## Now we can access the table from your stack
 
 Go back to `cdk-workshop-stack.ts` and assign the `table` property of the table viewer:
 
@@ -75,7 +75,7 @@ export class CdkWorkshopStack extends cdk.Stack {
       downstream: hello
     });
 
-    // defines an API Gateway REST API resource backed by our "hello" function.
+    // defines an API Gateway REST API resource backed by your "hello" function.
     new apigw.LambdaRestApi(this, 'Endpoint', {
       handler: helloWithCounter.handler
     });

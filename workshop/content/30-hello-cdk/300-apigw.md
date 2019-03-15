@@ -3,20 +3,20 @@ title = "API Gateway"
 weight = 300
 +++
 
-Next step is to add an API Gateway in front of our function. API Gateway will
+Next step is to add an API Gateway in front of your function. API Gateway will
 expose a public HTTP endpoint that anyone on the internet can hit with an HTTP
 client such as [curl](https://curl.haxx.se/) or a web browser.
 
 We will use [Lambda proxy
 integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html)
 mounted to the root of the API. This means that any request to any URL path will
-be proxied directly to our Lambda function, and the response from the function
+be proxied directly to your Lambda function, and the response from the function
 will be returned back to the user.
 
 ## Install the API Gateway construct library
 
 ```console
-npm install @aws-cdk/aws-apigateway@0.22.0
+npm install @aws-cdk/aws-apigateway@0.25.3
 ```
 
 {{% notice info %}}
@@ -30,7 +30,8 @@ in use.
 
 ## Add a LambdaRestApi construct to your stack
 
-Let's define an API endpoint and associate it with our Lambda function:
+Let's define an API endpoint and associate it with your Lambda function.
+Add the following highlighted code to *cdk-workshop-stack.ts*:
 
 {{<highlight ts "hl_lines=3 15-18">}}
 import cdk = require('@aws-cdk/cdk');
@@ -47,7 +48,7 @@ export class CdkWorkshopStack extends cdk.Stack {
       handler: 'hello.handler'
     });
 
-    // defines an API Gateway REST API resource backed by our "hello" function.
+    // defines an API Gateway REST API resource backed by your "hello" function.
     new apigw.LambdaRestApi(this, 'Endpoint', {
       handler: hello
     });
@@ -69,22 +70,22 @@ cdk diff
 Output should look like this:
 
 ```
-[+] 🆕 Creating HelloHandlerApiPermissionANYproxy90E90CD6 (type: AWS::Lambda::Permission)
-[+] 🆕 Creating HelloHandlerApiPermissionTestANYproxy9803526C (type: AWS::Lambda::Permission)
-[+] 🆕 Creating HelloHandlerApiPermissionANYAC4E141E (type: AWS::Lambda::Permission)
-[+] 🆕 Creating HelloHandlerApiPermissionTestANYDDD56D72 (type: AWS::Lambda::Permission)
-[+] 🆕 Creating EndpointEEF1FD8F (type: AWS::ApiGateway::RestApi)
-[+] 🆕 Creating EndpointDeployment318525DA74d07276aabd2917b81309217a397827 (type: AWS::ApiGateway::Deployment)
-[+] 🆕 Creating EndpointDeploymentStageprodB78BEEA0 (type: AWS::ApiGateway::Stage)
-[+] 🆕 Creating EndpointCloudWatchRoleC3C64E0F (type: AWS::IAM::Role)
-[+] 🆕 Creating EndpointAccountB8304247 (type: AWS::ApiGateway::Account)
-[+] 🆕 Creating Endpointproxy39E2174E (type: AWS::ApiGateway::Resource)
-[+] 🆕 Creating EndpointproxyANYC09721C5 (type: AWS::ApiGateway::Method)
-[+] 🆕 Creating EndpointANY485C938B (type: AWS::ApiGateway::Method)
-[+] Added Endpoint8024A810: {"Value":{"Fn::Join":["",["https://",{"Ref":"EndpointEEF1FD8F"},".execute-api.",{"Ref":"AWS::Region"},".amazonaws.com/",{"Ref":"EndpointDeploymentStageprodB78BEEA0"},"/"]]},"Export":{"Name":"CdkWorkshopStack:Endpoint8024A810"}}
+Resources
+[+] AWS::Lambda::Permission HelloHandler/ApiPermission.ANY.. HelloHandlerApiPermissionANYAC4E141E
+[+] AWS::Lambda::Permission HelloHandler/ApiPermission.Test.ANY.. HelloHandlerApiPermissionTestANYDDD56D72
+[+] AWS::Lambda::Permission HelloHandler/ApiPermission.ANY..{proxy+} HelloHandlerApiPermissionANYproxy90E90CD6
+[+] AWS::Lambda::Permission HelloHandler/ApiPermission.Test.ANY..{proxy+} HelloHandlerApiPermissionTestANYproxy9803526C
+[+] AWS::ApiGateway::RestApi Endpoint EndpointEEF1FD8F
+[+] AWS::ApiGateway::Deployment Endpoint/Deployment EndpointDeployment318525DA37c0e38727e25b4317827bf43e918fbf
+[+] AWS::ApiGateway::Stage Endpoint/DeploymentStage.prod EndpointDeploymentStageprodB78BEEA0
+[+] AWS::IAM::Role Endpoint/CloudWatchRole EndpointCloudWatchRoleC3C64E0F
+[+] AWS::ApiGateway::Account Endpoint/Account EndpointAccountB8304247
+[+] AWS::ApiGateway::Resource Endpoint/Default/{proxy+} Endpointproxy39E2174E
+[+] AWS::ApiGateway::Method Endpoint/Default/{proxy+}/ANY EndpointproxyANYC09721C5
+[+] AWS::ApiGateway::Method Endpoint/Default/ANY EndpointANY485C938B
 ```
 
-That's nice. This one line of code added 12 new resources to our stack.
+That's nice. This one line of code added 12 new resources to your stack.
 
 ## cdk deploy
 
@@ -144,4 +145,4 @@ If you received a 5xx error from API Gateway, it is likely one of two issues:
 
 ---
 
-Good job! In the next chapter, we'll write our own reusable construct.
+Good job! In the next chapter, we'll write your own reusable construct.

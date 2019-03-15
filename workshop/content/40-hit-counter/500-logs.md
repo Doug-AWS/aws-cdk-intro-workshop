@@ -3,9 +3,9 @@ title = "CloudWatch Logs"
 weight = 500
 +++
 
-## Viewing CloudWatch logs for our Lambda function
+## Viewing CloudWatch logs for your Lambda function
 
-The first thing to do is to go and look at the logs of our hit counter AWS
+The first thing to do is to go and look at the logs of your hit counter AWS
 Lambda function.
 
 There are many tools that help you do that like [SAM
@@ -52,7 +52,7 @@ you how to find your logs through the AWS console.
 
 ---
 
-It seems like our Lambda function can't write to our DynamoDB table. This
+It seems like your Lambda function can't write to your DynamoDB table. This
 actually makes sense - we didn't grant it those permissions! Let's go do that
 now.
 

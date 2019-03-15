@@ -5,7 +5,7 @@ weight = 200
 
 ## AWS Account for Experimentation
 
-To deploy our app, you'll need access to an AWS account. If you already have an
+To deploy your app, you'll need access to an AWS account. If you already have an
 account and your system is configured with credentials of an administrator user,
 you can [move to the next step](./300-nodejs.html).
 

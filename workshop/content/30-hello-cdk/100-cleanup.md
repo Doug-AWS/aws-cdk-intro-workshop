@@ -6,7 +6,7 @@ weight = 100
 ## Delete the sample code from your stack
 
 The project created by `cdk init sample-app` includes an SQS queue, and an SNS topic. We're
-not going to use them in our project, so remove them from your the
+not going to use them in your project, so remove them from your the
 `CdkWorkshopStack` constructor.
 
 Open `lib/cdk-workshop-stack.ts` and clean it up. Eventually it should look like this:
@@ -18,22 +18,23 @@ export class CdkWorkshopStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // nothing here!
   }
 }
 ```
 
 ## cdk diff
 
-Now, that we modified our stack's contents, we can ask the toolkit to show us
-what will happen if we run `cdk deploy` (the difference between our CDK app and
+Now, that we modified your stack's contents, we can ask the toolkit to show us
+what will happen if we run `cdk deploy` (the difference between your CDK app and
 what's currently deployed):
 
 ```console
 cdk diff
 ```
 
-Output should look like the following:
+Output should look like the following
+(if you don't see anything,
+it's likely because you either forgot to save the file or forgot to keep ```npm run watch``` running):
 
 ```
 IAM Statement Changes
@@ -53,7 +54,7 @@ Resources
 [-] AWS::SNS::Subscription CdkWorkshopTopicCdkWorkshopQueueSubscription88D211C7 destroy
 ```
 
-As expected, all of our resources are going to be brutally destroyed.
+As expected, all of your resources are going to be destroyed when you run ```cdk deploy```.
 
 ## cdk deploy
 
